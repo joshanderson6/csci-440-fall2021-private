@@ -162,9 +162,10 @@ public class Employee extends Model {
     public static List<Employee> all(int page, int count) {
         try (Connection conn = DB.connect();
              PreparedStatement stmt = conn.prepareStatement(
-                     "SELECT * FROM employees LIMIT ?"
+                     "SELECT * FROM employees LIMIT ? OFFSET ?"
              )) {
             stmt.setInt(1, count);
+            stmt.setInt(2, (page-1)*2);
             ResultSet results = stmt.executeQuery();
             List<Employee> resultList = new LinkedList<>();
             while (results.next()) {

@@ -1,10 +1,13 @@
 package edu.montana.csci.csci440.model;
 
+import edu.montana.csci.csci440.util.DB;
+
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
 // base class for entities
 public class Model {
@@ -12,7 +15,17 @@ public class Model {
     List<String> _errors = new LinkedList<>();
 
     public boolean create() {
-        throw new UnsupportedOperationException("Needs to be implemented");
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "INSERT INTO ? (*) VALUES (?)"
+             )) {
+            stmt.setString(1, this.getClass().toString().toLowerCase());
+            stmt.setString(2, Arrays.toString(this.getClass().getDeclaredFields()));
+            stmt.executeQuery();
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
+        return true;
     }
 
     public boolean update() {

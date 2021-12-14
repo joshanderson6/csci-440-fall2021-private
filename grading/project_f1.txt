@@ -27,8 +27,8 @@
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.152 s <<< FAILURE! - in edu.montana.csci.csci440.model.InvoicesTest
-[ERROR] testInvoiceFieldsLoad  Time elapsed: 0.131 s  <<< FAILURE!
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.214 s <<< FAILURE! - in edu.montana.csci.csci440.model.InvoicesTest
+[ERROR] testInvoiceFieldsLoad  Time elapsed: 0.188 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <Stuttgart> but was: <null>
 	at edu.montana.csci.csci440.model.InvoicesTest.testInvoiceFieldsLoad(InvoicesTest.java:22)
 
@@ -41,12 +41,12 @@ Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 6, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.041 s <<< FAILURE! - in edu.montana.csci.csci440.model.ArtistTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in edu.montana.csci.csci440.model.ArtistTest
 [ERROR] testUpdateWorks  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.UnsupportedOperationException: Needs to be implemented
 	at edu.montana.csci.csci440.model.ArtistTest.testUpdateWorks(ArtistTest.java:75)
 
-[ERROR] testCreateWorks  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testCreateWorks  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.RuntimeException: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
 	at edu.montana.csci.csci440.model.ArtistTest.testCreateWorks(ArtistTest.java:34)
 Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
@@ -56,7 +56,7 @@ Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing datab
 java.lang.UnsupportedOperationException: Needs to be implemented
 	at edu.montana.csci.csci440.model.ArtistTest.testValidationWorks(ArtistTest.java:61)
 
-[ERROR] testOptimisticConcurrencyIsImplemented  Time elapsed: 0.034 s  <<< ERROR!
+[ERROR] testOptimisticConcurrencyIsImplemented  Time elapsed: 0.019 s  <<< ERROR!
 java.lang.UnsupportedOperationException: Needs to be implemented
 	at edu.montana.csci.csci440.model.ArtistTest.testOptimisticConcurrencyIsImplemented(ArtistTest.java:49)
 
@@ -68,24 +68,24 @@ Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 7, Failures: 3, Errors: 2, Skipped: 0, Time elapsed: 0.079 s <<< FAILURE! - in edu.montana.csci.csci440.model.EmployeeTest
-[ERROR] testUpdateWorks  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] Tests run: 7, Failures: 3, Errors: 2, Skipped: 0, Time elapsed: 0.093 s <<< FAILURE! - in edu.montana.csci.csci440.model.EmployeeTest
+[ERROR] testUpdateWorks  Time elapsed: 0.011 s  <<< ERROR!
 java.lang.UnsupportedOperationException: Implement me
 	at edu.montana.csci.csci440.model.EmployeeTest.testUpdateWorks(EmployeeTest.java:79)
 
-[ERROR] testCreateWorks  Time elapsed: 0.017 s  <<< FAILURE!
+[ERROR] testCreateWorks  Time elapsed: 0.014 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <edu.montana.csci.csci440.model.Employee@d1c82101> but was: <null>
 	at edu.montana.csci.csci440.model.EmployeeTest.testCreateWorks(EmployeeTest.java:46)
 
-[ERROR] testValidationWorks  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] testValidationWorks  Time elapsed: 0.003 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <3> but was: <2>
 	at edu.montana.csci.csci440.model.EmployeeTest.testValidationWorks(EmployeeTest.java:54)
 
-[ERROR] testEmployeeHelperOnlyIssuesOneQuery  Time elapsed: 0.037 s  <<< FAILURE!
+[ERROR] testEmployeeHelperOnlyIssuesOneQuery  Time elapsed: 0.048 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at edu.montana.csci.csci440.model.EmployeeTest.testEmployeeHelperOnlyIssuesOneQuery(EmployeeTest.java:88)
 
-[ERROR] testEmployeeSalesReport  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testEmployeeSalesReport  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.IndexOutOfBoundsException: Index: 0
 	at edu.montana.csci.csci440.model.EmployeeTest.testEmployeeSalesReport(EmployeeTest.java:94)
 
@@ -105,44 +105,44 @@ Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 11, Failures: 5, Errors: 4, Skipped: 0, Time elapsed: 0.065 s <<< FAILURE! - in edu.montana.csci.csci440.model.TrackTest
-[ERROR] testAlbumNameIsStoredOnTrack  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] Tests run: 11, Failures: 5, Errors: 4, Skipped: 0, Time elapsed: 0.091 s <<< FAILURE! - in edu.montana.csci.csci440.model.TrackTest
+[ERROR] testAlbumNameIsStoredOnTrack  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <41> but was: <42>
 	at edu.montana.csci.csci440.model.TrackTest.testAlbumNameIsStoredOnTrack(TrackTest.java:96)
 
-[ERROR] testOrderByWorks  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testOrderByWorks  Time elapsed: 0.004 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <É Uma Partida De Futebol> but was: <For Those About To Rock (We Salute You)>
 	at edu.montana.csci.csci440.model.TrackTest.testOrderByWorks(TrackTest.java:102)
 
-[ERROR] testDeleteWorks  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testDeleteWorks  Time elapsed: 0.011 s  <<< ERROR!
 java.lang.RuntimeException: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
 	at edu.montana.csci.csci440.model.TrackTest.testDeleteWorks(TrackTest.java:50)
 Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
 	at edu.montana.csci.csci440.model.TrackTest.testDeleteWorks(TrackTest.java:50)
 
-[ERROR] testTrackListsWorks  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testTrackListsWorks  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at edu.montana.csci.csci440.model.TrackTest.testTrackListsWorks(TrackTest.java:108)
 
-[ERROR] testUpdateWorks  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testUpdateWorks  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.UnsupportedOperationException: Needs to be implemented
 	at edu.montana.csci.csci440.model.TrackTest.testUpdateWorks(TrackTest.java:77)
 
-[ERROR] testCreateWorks  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testCreateWorks  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.RuntimeException: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
 	at edu.montana.csci.csci440.model.TrackTest.testCreateWorks(TrackTest.java:36)
 Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
 	at edu.montana.csci.csci440.model.TrackTest.testCreateWorks(TrackTest.java:36)
 
-[ERROR] testValidationWorks  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testValidationWorks  Time elapsed: 0 s  <<< ERROR!
 java.lang.UnsupportedOperationException: Needs to be implemented
 	at edu.montana.csci.csci440.model.TrackTest.testValidationWorks(TrackTest.java:61)
 
-[ERROR] trackCountIsCachedInRedis  Time elapsed: 0.005 s  <<< FAILURE!
+[ERROR] trackCountIsCachedInRedis  Time elapsed: 0.006 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <51> but was: <52>
 	at edu.montana.csci.csci440.model.TrackTest.trackCountIsCachedInRedis(TrackTest.java:120)
 
-[ERROR] testArtistNameIsStoredOnTrack  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] testArtistNameIsStoredOnTrack  Time elapsed: 0.005 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <58> but was: <60>
 	at edu.montana.csci.csci440.model.TrackTest.testArtistNameIsStoredOnTrack(TrackTest.java:87)
 
@@ -150,7 +150,7 @@ org.opentest4j.AssertionFailedError: expected: <58> but was: <60>
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in edu.montana.csci.csci440.model.PlaylistsTest
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in edu.montana.csci.csci440.model.PlaylistsTest
 [ERROR] testPlaylistFieldsLoad  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <213> but was: <0>
 	at edu.montana.csci.csci440.model.PlaylistsTest.testPlaylistFieldsLoad(PlaylistsTest.java:22)
@@ -163,18 +163,18 @@ album
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in edu.montana.csci.csci440.model.AlbumTest
-[ERROR] testUpdateWorks  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.027 s <<< FAILURE! - in edu.montana.csci.csci440.model.AlbumTest
+[ERROR] testUpdateWorks  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.UnsupportedOperationException: Needs to be implemented
 	at edu.montana.csci.csci440.model.AlbumTest.testUpdateWorks(AlbumTest.java:60)
 
-[ERROR] testCreateWorks  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testCreateWorks  Time elapsed: 0.005 s  <<< ERROR!
 java.lang.RuntimeException: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
 	at edu.montana.csci.csci440.model.AlbumTest.testCreateWorks(AlbumTest.java:35)
 Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
 	at edu.montana.csci.csci440.model.AlbumTest.testCreateWorks(AlbumTest.java:35)
 
-[ERROR] testValidationWorks  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testValidationWorks  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.UnsupportedOperationException: Needs to be implemented
 	at edu.montana.csci.csci440.model.AlbumTest.testValidationWorks(AlbumTest.java:45)
 
@@ -182,8 +182,8 @@ java.lang.UnsupportedOperationException: Needs to be implemented
 Resetting DB After Test...
 Resetting DB After Test...
 Resetting DB After Test...
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in edu.montana.csci.csci440.model.CustomerTest
-[ERROR] testCustomerFieldsLoad  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in edu.montana.csci.csci440.model.CustomerTest
+[ERROR] testCustomerFieldsLoad  Time elapsed: 0.004 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <luisg@embraer.com.br> but was: <null>
 	at edu.montana.csci.csci440.model.CustomerTest.testCustomerFieldsLoad(CustomerTest.java:21)
 
@@ -222,8 +222,8 @@ org.opentest4j.AssertionFailedError: expected: <luisg@embraer.com.br> but was: <
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.277 s
-[INFO] Finished at: 2021-12-13T14:34:46-07:00
+[INFO] Total time:  2.801 s
+[INFO] Finished at: 2021-12-13T20:18:35-07:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project CSCI_440_Project: There are test failures.
 [ERROR] 

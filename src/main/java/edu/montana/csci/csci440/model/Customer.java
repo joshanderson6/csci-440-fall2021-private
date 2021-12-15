@@ -29,6 +29,7 @@ public class Customer extends Model {
     private Customer(ResultSet results) throws SQLException {
         firstName = results.getString("FirstName");
         lastName = results.getString("LastName");
+        email = results.getString("Email");
         customerId = results.getLong("CustomerId");
         supportRepId = results.getLong("SupportRepId");
     }
@@ -77,7 +78,7 @@ public class Customer extends Model {
 
     public static Customer find(long customerId) {
         try (Connection conn = DB.connect();
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM customers WHERE CustomerId=?")) {
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM customers WHERE CustomerId = ?")) {
             stmt.setLong(1, customerId);
             ResultSet results = stmt.executeQuery();
             if (results.next()) {

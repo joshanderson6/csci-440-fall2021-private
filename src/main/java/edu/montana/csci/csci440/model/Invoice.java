@@ -26,6 +26,7 @@ public class Invoice extends Model {
     private Invoice(ResultSet results) throws SQLException {
         billingAddress = results.getString("BillingAddress");
         billingState = results.getString("BillingState");
+        billingCity = results.getString("BillingCity");
         billingCountry = results.getString("BillingCountry");
         billingPostalCode = results.getString("BillingPostalCode");
         total = results.getBigDecimal("Total");

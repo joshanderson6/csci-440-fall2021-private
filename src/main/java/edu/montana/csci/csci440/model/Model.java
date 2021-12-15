@@ -14,21 +14,7 @@ public class Model {
 
     List<String> _errors = new LinkedList<>();
 
-    public boolean create() {
-        System.out.println(this.getClass().getSimpleName().toLowerCase());
-        System.out.println(Arrays.toString(this.getClass().getDeclaredFields()));
-        try (Connection conn = DB.connect();
-             PreparedStatement stmt = conn.prepareStatement(
-                     "INSERT INTO ? (*) VALUES (?)"
-             )) {
-            stmt.setString(1, this.getClass().toString().toLowerCase());
-            stmt.setString(2, Arrays.toString(this.getClass().getDeclaredFields()));
-            stmt.executeUpdate();
-        } catch (SQLException sqlException) {
-            throw new RuntimeException(sqlException);
-        }
-        return true;
-    }
+    public boolean create() { throw new UnsupportedOperationException("Needs to be implemented"); }
 
     public boolean update() {
         throw new UnsupportedOperationException("Needs to be implemented");

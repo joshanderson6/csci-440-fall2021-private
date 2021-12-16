@@ -54,6 +54,18 @@ public class Artist extends Model {
     }
 
     @Override
+    public void delete() {
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "DELETE FROM artists WHERE ArtistID=?")) {
+            stmt.setLong(1, this.getArtistId());
+            stmt.executeUpdate();
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
+    }
+
+    @Override
     public boolean update() {
         if (verify()) {
             try (Connection conn = DB.connect();
@@ -85,6 +97,8 @@ public class Artist extends Model {
         return artistId;
     }
 
+    public void setArtistId(Long id) {this.artistId = id;}
+
     public void setArtist(Artist artist) {
         this.artistId = artist.getArtistId();
     }
@@ -107,7 +121,7 @@ public class Artist extends Model {
                      "SELECT * FROM artists LIMIT ? OFFSET ?"
              )) {
             stmt.setInt(1, count);
-            stmt.setInt(2, (page-1)*100);
+            stmt.setInt(2, (page-1)*count);
             ResultSet results = stmt.executeQuery();
             List<Artist> resultList = new LinkedList<>();
             while (results.next()) {

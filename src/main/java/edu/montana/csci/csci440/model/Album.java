@@ -31,7 +31,7 @@ public class Album extends Model {
         if (title == null || "".equals(title)) {
             addError("Title can't be null or blank!");
         }
-        if (artistId == null || "".equals(artistId)) {
+        if (artistId == null) {
             addError("ArtistId can't be null!");
         }
         return !hasErrors();
@@ -53,6 +53,18 @@ public class Album extends Model {
             }
         } else {
             return false;
+        }
+    }
+
+    @Override
+    public void delete() {
+        try (Connection conn = DB.connect();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "DELETE FROM albums WHERE AlbumID=?")) {
+            stmt.setLong(1, this.getAlbumId());
+            stmt.executeUpdate();
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
         }
     }
 
@@ -81,6 +93,10 @@ public class Album extends Model {
 
     public void setArtist(Artist artist) {
         artistId = artist.getArtistId();
+    }
+
+    public void setArtistId(Long id) {
+        artistId = id;
     }
 
     public List<Track> getTracks() {
@@ -117,7 +133,7 @@ public class Album extends Model {
                      "SELECT * FROM albums LIMIT ? OFFSET ?"
              )) {
             stmt.setInt(1, count);
-            stmt.setInt(2, (page-1)*100);
+            stmt.setInt(2, (page-1)*count);
             ResultSet results = stmt.executeQuery();
             List<Album> resultList = new LinkedList<>();
             while (results.next()) {

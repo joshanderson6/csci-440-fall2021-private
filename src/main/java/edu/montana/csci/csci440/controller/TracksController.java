@@ -37,8 +37,12 @@ public class TracksController {
             List<Track> tracks;
             if (search != null) {
                 tracks = Track.search(Web.getPage(), Web.PAGE_SIZE, orderBy, search);
-            } else {
+            }
+            else if (orderBy != null) {
                 tracks = Track.all(Web.getPage(), Web.PAGE_SIZE, orderBy);
+            }
+            else {
+                tracks = Track.all(Web.getPage(), Web.PAGE_SIZE);
             }
             // TODO - implement cache of count w/ Redis
             long totalTracks = Track.count();

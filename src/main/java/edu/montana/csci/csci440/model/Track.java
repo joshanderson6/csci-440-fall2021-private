@@ -53,25 +53,25 @@ public class Track extends Model {
     @Override
     public boolean verify() {
         _errors.clear(); // clear any existing errors
-        if (milliseconds == null || "".equals(milliseconds)) {
+        if (milliseconds == null) {
             addError("Milliseconds can't be null or blank!");
         }
-        if (mediaTypeId == null || "".equals(mediaTypeId)) {
+        if (mediaTypeId == null) {
             addError("MediaTypeId can't be null!");
         }
-        if (genreId == null || "".equals(genreId)) {
+        if (genreId == null) {
             addError("GenreId can't be null or blank!");
         }
-        if (bytes == null || "".equals(bytes)) {
+        if (bytes == null) {
             addError("Bytes can't be null!");
         }
-        if (unitPrice == null || "".equals(unitPrice)) {
+        if (unitPrice == null) {
             addError("UnitPrice can't be null!");
         }
         if (name == null || "".equals(name)) {
             addError("Name can't be null!");
         }
-        if (albumId == null || "".equals(albumId)) {
+        if (albumId == null) {
             addError("AlbumId can't be null!");
         }
         return !hasErrors();
@@ -325,12 +325,14 @@ public class Track extends Model {
     }
 
     public static List<Track> search(int page, int count, String orderBy, String search) {
-        String query = "SELECT * FROM tracks WHERE name LIKE ? LIMIT ?";
+        String query = "SELECT tracks.*, albums.Title as Title, artists.Name as ArtistName FROM tracks JOIN albums on albums.AlbumId = tracks.AlbumId JOIN artists on albums.ArtistId = artists.ArtistId WHERE tracks.Name LIKE ? OR Title LIKE ? OR ArtistName LIKE ? LIMIT ?";
         search = "%" + search + "%";
         try (Connection conn = DB.connect();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, search);
-            stmt.setInt(2, count);
+            stmt.setString(2, search);
+            stmt.setString(3, search);
+            stmt.setInt(4, count);
             ResultSet results = stmt.executeQuery();
             List<Track> resultList = new LinkedList<>();
             while (results.next()) {
@@ -368,11 +370,11 @@ public class Track extends Model {
     }
 
     public static List<Track> all(int page, int count, String orderBy) {
-        String query = "SELECT * FROM tracks ORDER BY " + orderBy + " LIMIT ? OFFSET ?";
+        String query = "SELECT tracks.*, albums.Title as Title, artists.Name as ArtistName FROM tracks JOIN albums on albums.AlbumId = tracks.AlbumId JOIN artists on albums.ArtistId = artists.ArtistId ORDER BY " + orderBy + " LIMIT ? OFFSET ?";
         try (Connection conn = DB.connect();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, count);
-            stmt.setInt(2, (page-1)*1000);
+            stmt.setInt(2, (page-1)*count);
             ResultSet results = stmt.executeQuery();
             List<Track> resultList = new LinkedList<>();
             while (results.next()) {
